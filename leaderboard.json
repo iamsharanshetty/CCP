@@ -38,5 +38,15 @@
     "timestamp": "2025-10-07T21:54:41.217884",
     "execution_time": 1.654,
     "error_details": []
+  },
+  {
+    "submission_id": "7b01ccb2-0999-40d4-b2e9-71b0214eb76d",
+    "user_id": "devshetty",
+    "problem_id": "three-sum",
+    "score": 10,
+    "replay_result": "10/10 tests passed",
+    "timestamp": "2025-10-08T00:18:25.256298",
+    "execution_time": 1.364,
+    "error_details": []
   }
 ]

@@ -83,31 +83,31 @@ async def root_api():
         "database_available": DATABASE_AVAILABLE
     }
 
-# @app.post("/api/signup")
-# async def signup_api(request: SignupRequest):
-#     """User signup endpoint."""
-#     if not DATABASE_AVAILABLE:
-#         raise HTTPException(status_code=503, detail="Database service unavailable.")
-#     try:
-#         result = create_user(request.username, request.email, request.password)
-#         if not result["success"]:
-#             raise HTTPException(status_code=400, detail=result["error"])
-#         return result
-#     except Exception as e:
-#         raise HTTPException(status_code=500, detail=str(e))
+@app.post("/api/signup")
+async def signup_api(request: SignupRequest):
+    """User signup endpoint."""
+    if not DATABASE_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Database service unavailable.")
+    try:
+        result = create_user(request.username, request.email, request.password)
+        if not result["success"]:
+            raise HTTPException(status_code=400, detail=result["error"])
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
-# @app.post("/api/login")
-# async def login_api(request: LoginRequest):
-#     """User login endpoint."""
-#     if not DATABASE_AVAILABLE:
-#         raise HTTPException(status_code=503, detail="Database service unavailable")
-#     try:
-#         result = verify_user(request.username, request.password)
-#         if not result["success"]:
-#             raise HTTPException(status_code=401, detail=result["error"])
-#         return result
-#     except Exception as e:
-#         raise HTTPException(status_code=500, detail=str(e))
+@app.post("/api/login")
+async def login_api(request: LoginRequest):
+    """User login endpoint."""
+    if not DATABASE_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Database service unavailable")
+    try:
+        result = verify_user(request.username, request.password)
+        if not result["success"]:
+            raise HTTPException(status_code=401, detail=result["error"])
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/problems")
 def list_problems_api():
