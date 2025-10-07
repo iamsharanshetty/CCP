@@ -1,0 +1,22 @@
+--- Load Test Summary Report (load_test_report_90_users_stats.csv) ---
+
+Timestamp: 2025-10-04 21:59:43
+Total Users Simulated: None
+----------------------------------------
+
+## Performance Metrics
+Requests per second (RPS): 14.62
+Total Requests: None
+Average Response Time: 0.00 ms
+Median Response Time (50%): 1900 ms
+95th Percentile Response Time: 4400 ms
+Max Response Time: 6400 ms
+
+## Error Metrics
+Total Failures: 0
+Failure Rate: 0.00%
+Failures per second: 0.05
+
+## Overall Verdict
+Status: WARNING
+Reason: The application has high latency under load. The 95th percentile response time is over 1000ms, which may lead to a poor user experience.

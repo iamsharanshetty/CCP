@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Code Challenge Platform</title>
+    <link rel="stylesheet" href="challenge.css" />
+    <style>
+      /* Auth page specific styles */
+      .auth-container {
+        max-width: 450px;
+        width: 90%;
+        margin: 4rem auto;
+        padding: 0 1rem;
+      }
+
+      .auth-section {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 24px;
+        padding: 3rem 2.5rem;
+        box-shadow: 0 20px 40px rgba(99, 102, 241, 0.12);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+      }
+
+      body.dark .auth-section {
+        background: rgba(26, 32, 44, 0.95);
+        border: 1px solid rgba(129, 140, 248, 0.2);
+      }
+
+      .auth-section h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        background: linear-gradient(135deg, #4f46e5, #7c3aed, #db2777);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 1.8rem;
+      }
+
+      .auth-section .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .auth-section .form-group label {
+        display: block;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+        color: #555;
+        font-size: 0.95rem;
+      }
+
+      body.dark .auth-section .form-group label {
+        color: #bdc3c7;
+      }
+
+      .auth-section .form-group input {
+        width: 100%;
+        padding: 0.9rem 1.1rem;
+        border: 2px solid rgba(226, 232, 240, 0.8);
+        border-radius: 12px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.9);
+        box-sizing: border-box;
+      }
+
+      body.dark .auth-section .form-group input {
+        background: rgba(45, 55, 72, 0.9);
+        border-color: rgba(129, 140, 248, 0.2);
+        color: #e2e8f0;
+      }
+
+      .auth-section .form-group input:focus {
+        outline: none;
+        border-color: #6366f1;
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+      }
+
+      .auth-section .submit-btn {
+        width: 100%;
+        padding: 1rem;
+        margin-top: 1rem;
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 1.05rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .auth-section .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+      }
+
+      .auth-section p {
+        text-align: center;
+        margin-top: 1.5rem;
+        color: #666;
+      }
+
+      body.dark .auth-section p {
+        color: #9ca3af;
+      }
+
+      .auth-section p a {
+        color: #6366f1;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .auth-section p a:hover {
+        text-decoration: underline;
+      }
+
+      .auth-section small {
+        color: #999;
+        font-size: 0.85rem;
+      }
+
+      body.dark .auth-section small {
+        color: #6b7280;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="auth-container">
+      <div class="auth-section">
+        <h2>🔐 Login / Signup</h2>
+
+        <div id="loginForm">
+          <div class="form-group">
+            <label for="loginUsername">Username:</label>
+            <input type="text" id="loginUsername" required />
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" required />
+          </div>
+          <button id="loginBtn" class="submit-btn">Login</button>
+          <p>
+            Don't have an account?
+            <a href="#" id="showSignup">Sign up</a>
+          </p>
+        </div>
+
+        <div id="signupForm" class="hidden">
+          <div class="form-group">
+            <label for="signupUsername">Username:</label>
+            <input type="text" id="signupUsername" required />
+          </div>
+          <div class="form-group">
+            <label for="signupEmail">Email:</label>
+            <input type="email" id="signupEmail" required />
+          </div>
+          <div class="form-group">
+            <label for="signupPassword">Password:</label>
+            <input
+              type="password"
+              id="signupPassword"
+              maxlength="72"
+              required
+            />
+            <small>Maximum 72 characters</small>
+          </div>
+          <button id="signupBtn" class="submit-btn">Sign Up</button>
+          <p>
+            Already have an account?
+            <a href="#" id="showLogin">Login</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="auth.js"></script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+[
+  {
+    "submission_id": "eb003b52-1245-47dc-b867-2900cfce4c97",
+    "user_id": "TestUser",
+    "problem_id": "power-of-two",
+    "score": 10,
+    "replay_result": "10/10 tests passed",
+    "timestamp": "2025-10-07T21:48:35.206443",
+    "execution_time": 0.578,
+    "error_details": []
+  },
+  {
+    "submission_id": "c8c39432-16ac-4eb9-89e2-aae35ca2dda9",
+    "user_id": "4ps21is035",
+    "problem_id": "three-sum",
+    "score": 10,
+    "replay_result": "10/10 tests passed",
+    "timestamp": "2025-10-07T21:52:19.589495",
+    "execution_time": 1.023,
+    "error_details": []
+  },
+  {
+    "submission_id": "f9cb4bd8-a7b4-46a6-91e7-498190632044",
+    "user_id": "arjun",
+    "problem_id": "three-sum",
+    "score": 10,
+    "replay_result": "10/10 tests passed",
+    "timestamp": "2025-10-07T21:52:45.952773",
+    "execution_time": 0.888,
+    "error_details": []
+  },
+  {
+    "submission_id": "934efa53-0b07-43c2-8dfd-5c0b7d1e97c3",
+    "user_id": "arryan",
+    "problem_id": "three-sum",
+    "score": 10,
+    "replay_result": "10/10 tests passed",
+    "timestamp": "2025-10-07T21:54:41.217884",
+    "execution_time": 1.654,
+    "error_details": []
+  }
+]

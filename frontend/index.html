@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coding Challenge Platform</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>🚀 Welcome to Code Challenge Platform</h1>
+      <div style="text-align: center; margin: 2rem 0">
+        <p>Ready to test your coding skills?</p>
+        <a href="challenge.html" class="challenge-btn"
+          >Start Coding Challenge</a
+        >
+        <br /><br />
+        <a href="#" id="viewLeaderboard" class="leaderboard-link"
+          >View Leaderboard Only</a
+        >
+      </div>
+
+      <div id="leaderboardSection" class="hidden">
+        <h2>🏆 Live Leaderboard</h2>
+        <button id="darkToggle" class="toggle-btn">🌙 Toggle Dark Mode</button>
+        <table id="leaderboard">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>User</th>
+              <th>Score</th>
+              <th>Result</th>
+              <th>Timestamp</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <!-- Main Script -->
+    <script src="script.js"></script>
+  </body>
+</html>
