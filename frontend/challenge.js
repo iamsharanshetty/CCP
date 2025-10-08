@@ -7,18 +7,36 @@ let codeEditor; // CodeMirror instance
 //   window.location.hostname === "localhost" ? "http://127.0.0.1:8000" : "/api";
 // At the top of challenge.js, replace the API_BASE line with:
 // At the top of challenge.js, replace the API_BASE line with:
+// const API_BASE = (() => {
+//   const hostname = window.location.hostname;
+//   const protocol = window.location.protocol;
+
+//   if (
+//     protocol === "file:" ||
+//     hostname === "localhost" ||
+//     hostname === "127.0.0.1" ||
+//     hostname === ""
+//   ) {
+//     return "http://127.0.0.1:8000";
+//   }
+//   return "/api";
+// })();
+
 const API_BASE = (() => {
   const hostname = window.location.hostname;
   const protocol = window.location.protocol;
 
+  // Local development
   if (
     protocol === "file:" ||
     hostname === "localhost" ||
     hostname === "127.0.0.1" ||
     hostname === ""
   ) {
-    return "http://127.0.0.1:8000";
+    return "http://127.0.0.1:8000/api";
   }
+
+  // Production (Render or other deployment)
   return "/api";
 })();
 
@@ -427,7 +445,8 @@ async function loadProblems() {
     console.log("DEBUG: Starting loadProblems()");
     showLoading("Loading problems...");
     console.log(`DEBUG: Fetching from ${API_BASE}/api/problems`);
-    const response = await fetch(`${API_BASE}/api/problems`);
+    // const response = await fetch(`${API_BASE}/api/problems`);
+    const response = await fetch(`${API_BASE}/problems`);
     console.log("DEBUG: Response received:", response.status, response.ok);
     const data = await response.json();
     console.log("DEBUG: Data received:", data);

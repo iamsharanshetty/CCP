@@ -2,20 +2,38 @@
 //   window.location.hostname === "localhost" ? "http://127.0.0.1:8000" : "/api";
 
 // Better API_BASE detection
+// const API_BASE = (() => {
+//   const hostname = window.location.hostname;
+//   const protocol = window.location.protocol;
+
+//   // If opened as file:// or localhost, use local server
+//   if (
+//     protocol === "file:" ||
+//     hostname === "localhost" ||
+//     hostname === "127.0.0.1" ||
+//     hostname === ""
+//   ) {
+//     return "http://127.0.0.1:8000";
+//   }
+//   // Otherwise use /api for production
+//   return "/api";
+// })();
+
 const API_BASE = (() => {
   const hostname = window.location.hostname;
   const protocol = window.location.protocol;
 
-  // If opened as file:// or localhost, use local server
+  // Local development
   if (
     protocol === "file:" ||
     hostname === "localhost" ||
     hostname === "127.0.0.1" ||
     hostname === ""
   ) {
-    return "http://127.0.0.1:8000";
+    return "http://127.0.0.1:8000/api";
   }
-  // Otherwise use /api for production
+
+  // Production (Render or other deployment)
   return "/api";
 })();
 
@@ -43,7 +61,8 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
     //   headers: { "Content-Type": "application/json" },
     //   body: JSON.stringify({ username, password }),
     // });
-    const response = await fetch(`${API_BASE}/api/login`, {
+    // const response = await fetch(`${API_BASE}/api/login`, {
+    const response = await fetch(`${API_BASE}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),
@@ -83,7 +102,8 @@ document.getElementById("signupBtn").addEventListener("click", async () => {
     //   body: JSON.stringify({ username, email, password }),
     // });
 
-    const response = await fetch(`${API_BASE}/api/signup`, {
+    // const response = await fetch(`${API_BASE}/api/signup`, {
+    const response = await fetch(`${API_BASE}/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, email, password }),
