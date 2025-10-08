@@ -444,7 +444,7 @@ async function loadProblems() {
   try {
     console.log("DEBUG: Starting loadProblems()");
     showLoading("Loading problems...");
-    console.log(`DEBUG: Fetching from ${API_BASE}/api/problems`);
+    console.log(`DEBUG: Fetching from ${API_BASE}/problems`);
     // const response = await fetch(`${API_BASE}/api/problems`);
     const response = await fetch(`${API_BASE}/problems`);
     console.log("DEBUG: Response received:", response.status, response.ok);
@@ -795,7 +795,8 @@ async function onProblemSelect() {
 async function loadProblemDetails(problemId) {
   try {
     // First try to get test cases from the backend API
-    const response = await fetch(`${API_BASE}/api/problem/${problemId}`);
+    // const response = await fetch(`${API_BASE}/api/problem/${problemId}`);
+    const response = await fetch(`${API_BASE}/problem/${problemId}`);
     let problemData;
 
     if (response.ok) {
@@ -1054,7 +1055,8 @@ async function runCode() {
   try {
     showLoading("Running your code with public test cases...");
 
-    const response = await fetch(`${API_BASE}/api/run`, {
+    // const response = await fetch(`${API_BASE}/api/run`, {
+    const response = await fetch(`${API_BASE}/run`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -1212,7 +1214,8 @@ async function submitSolution() {
 
     console.log("Sending request to:", `${API_BASE}/api/submit`);
 
-    const response = await fetch(`${API_BASE}/api/submit`, {
+    // const response = await fetch(`${API_BASE}/api/submit`, {
+    const response = await fetch(`${API_BASE}/submit`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -1344,7 +1347,8 @@ async function showLeaderboard() {
   try {
     showLoading("Loading leaderboard...");
 
-    const response = await fetch(`${API_BASE}/api/leaderboard`);
+    // const response = await fetch(`${API_BASE}/api/leaderboard`);
+    const response = await fetch(`${API_BASE}/leaderboard`);
     const data = await response.json();
 
     displayLeaderboard(data.leaderboard);
