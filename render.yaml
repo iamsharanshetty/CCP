@@ -1,7 +1,7 @@
 services:
   # PostgreSQL Database
   - type: pserv
-    name: coding-challenge-db
+    name: coding-challenge-platform
     env: python
     plan: free
 
