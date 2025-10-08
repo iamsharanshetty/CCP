@@ -70,7 +70,27 @@ const elements = {
 // if (!userData) {
 //   window.location.href = "auth.html";
 // }
-const userData = { username: "" }; // Allow custom username for testing
+// const userData = { username: "" }; // Allow custom username for testing
+
+// Check authentication and get user data
+const userData = (() => {
+  const storedUser = localStorage.getItem("user");
+  if (storedUser) {
+    try {
+      return JSON.parse(storedUser);
+    } catch (e) {
+      console.error("Error parsing user data:", e);
+      return null;
+    }
+  }
+  return null;
+})();
+
+// Optional: Redirect to login if not authenticated
+// Uncomment below if you want to enforce login
+if (!userData) {
+  window.location.href = "auth.html";
+}
 
 // Initialize CodeMirror
 function initializeCodeEditor() {
@@ -379,11 +399,34 @@ function setEditorCode(code) {
 }
 
 // Pre-fill username - ENABLED FOR TESTING
+// document.addEventListener("DOMContentLoaded", () => {
+//   if (userData) {
+//     elements.username.value = userData.username;
+//     elements.username.disabled = false; // Allow editing username
+//   }
+//   initializeCodeEditor();
+// });
+
+// Pre-fill username from localStorage after login
 document.addEventListener("DOMContentLoaded", () => {
-  if (userData) {
-    elements.username.value = userData.username;
-    elements.username.disabled = false; // Allow editing username
+  // Try to get user data from localStorage
+  const storedUser = localStorage.getItem("user");
+
+  if (storedUser) {
+    try {
+      const userData = JSON.parse(storedUser);
+      if (userData && userData.username) {
+        elements.username.value = userData.username;
+        console.log("Username auto-filled:", userData.username);
+      }
+    } catch (e) {
+      console.error("Error parsing user data:", e);
+    }
   }
+
+  // Always allow editing username
+  elements.username.disabled = false;
+
   initializeCodeEditor();
 });
 
